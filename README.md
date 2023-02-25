@@ -19,7 +19,7 @@ Clone this repository anywhere:
 
 ```bash
 cd ~/Music
-git clone git@github.com:eexit/youtube-music-library-exporter.git
+git clone git@github.com:d122082/youtube-music-library-exporter.git
 cd youtube-music-library-exporter
 ```
 
