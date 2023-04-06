@@ -1,4 +1,6 @@
 # /bin/sh
+# Need download complete youtube music.html
+# Cookie file need use netscape cookie type
 if [ $1 ]; then
                 `./metadata-extractor --html-file=$1`
                 `./downloader`
