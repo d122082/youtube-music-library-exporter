@@ -35,7 +35,18 @@ cat downloader.log
 for f in ./downloads/*.m4a; do ffmpeg -i "$f" -codec:v copy -codec:a libmp3lame -q:a 2 "${f%.m4a}.mp3"; done
 rm -rf downloads/*.m4a
 mv downloads/*.mp3 /mnt/d/StarFly/Download/
-rm -rf downloader.log
+if [ $? = 0 ]; 
+then  
+	rm -rf downloads/; 
+else
+	echo "Error to mv *.MP3"
+fi
+cat downloader.log
+if [ $? = 0 ]; 
+then  
+	rm -rf downloader.log
+else
+	echo "Error to show downloader.log"
+fi
 rm -rf metadata.json
-rm -rf downloads/
 rm -rf YouTube\ Music.html
