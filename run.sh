@@ -29,11 +29,10 @@ path=/mnt/d/StarFly/Download
 mv $path/YouTube\ Music.html  .
 rm -rf $path/YouTube\ Music_files/
 ./metadata-extractor
-cat metadata.json | jq > 1.txt
-rm -rf metadata.json
-mv 1.txt metadata.json
+jq '.' metadata.json > metadata_formatted.json
+mv metadata_formatted.json metadata.json
 vi metadata.json
-./downloader
+PYTHONPATH=$HOME/.local/lib/python3.14/site-packages python3.14 download_song.py
 cat downloader.log
 for f in ./downloads/*.m4a; do ffmpeg -i "$f" -codec:v copy -codec:a libmp3lame -q:a 2 "${f%.m4a}.mp3"; done
 rm -rf downloads/*.m4a
@@ -52,5 +51,5 @@ else
         echo "Error to show downloader.log"
 fi
 
-rm -rf metadata.json
-rm -rf YouTube\ Music.html
+#rm -rf metadata.json
+#rm -rf YouTube\ Music.html
