@@ -19,14 +19,19 @@ Clone this repository anywhere:
 
 ```bash
 cd ~/Music
-git clone git@github.com:d122082/youtube-music-library-exporter.git
+git clone https://github.com/d122082/youtube-music-library-exporter.git
 cd youtube-music-library-exporter
 ```
 
 Install dependencies (assuming you have [homebrew](https://brew.sh/) installed):
 
 ```bash
-brew install yt-dlp/taps/yt-dlp ffmpeg php composer
+pip install --user --upgrade yt-dlp
+flatpak install ffmpeg
+sudo dnf install php php-cli php-json php-mbstring
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php composer-setup.php
+sudo mv composer.phar /usr/local/bin/composer
 composer install
 ```
 
