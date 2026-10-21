@@ -29,7 +29,7 @@ Install dependencies (assuming you have [homebrew](https://brew.sh/) installed):
 pip install yt-dlp
 pip install bgutil-ytdlp-pot-provider
 flatpak install ffmpeg
-sudo dnf install php php-cli php-json php-mbstring
+sudo dnf install php php-cli php-json php-mbstring nodejs
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php composer-setup.php
 sudo mv composer.phar /usr/local/bin/composer
