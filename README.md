@@ -26,7 +26,8 @@ cd youtube-music-library-exporter
 Install dependencies (assuming you have [homebrew](https://brew.sh/) installed):
 
 ```bash
-pip install --user --upgrade yt-dlp
+pip install yt-dlp
+pip install bgutil-ytdlp-pot-provider
 flatpak install ffmpeg
 sudo dnf install php php-cli php-json php-mbstring
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
