@@ -21,18 +21,22 @@ Clone this repository anywhere:
 cd ~/Music
 git clone https://github.com/d122082/youtube-music-library-exporter.git
 cd youtube-music-library-exporter
-```
 
-Install dependencies (assuming you have [homebrew](https://brew.sh/) installed):
+## create python venv 
+python3 -m venv venv
+source venv/bin/activate
 
-```bash
-pip install yt-dlp
-pip install bgutil-ytdlp-pot-provider
-flatpak install ffmpeg
-sudo dnf install php php-cli php-json php-mbstring nodejs
-php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-php composer-setup.php
-sudo mv composer.phar /usr/local/bin/composer
+## deploy PO Token docker server
+sudo apt install docker.io
+sudo docker run --name bgutil-provider -d -p 127.0.0.1:4416:4416 --init brainicism/bgutil-ytdlp-pot-provider
+
+## install deno
+curl -fsSL https://deno.land/install.sh | sh
+export PATH="$HOME/.deno/bin:$PATH"
+deno --version
+
+## install ffmpeg php composer
+cd youtube-music-library-exporter
 composer install
 ```
 
