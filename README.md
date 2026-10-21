@@ -38,6 +38,13 @@ deno --version
 ## install ffmpeg php composer
 cd youtube-music-library-exporter
 composer install
+
+----- Stop Python venv
+deactivate
+
+----- Stop docker
+sudo docker stop bgutil-provider
+
 ```
 
 ## Build the metadata file
