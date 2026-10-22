@@ -66,7 +66,6 @@ def main():
         '--output', f"downloads/{artist}-{song_title}.%(ext)s",
         url
     ]
-
     # 回報即將執行的完整指令
     cmd_str = " ".join([f'"{arg}"' if " " in arg else arg for arg in cmd])
     print(f"\n-> 執行指令：\n{cmd_str}\n")
