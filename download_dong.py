@@ -46,13 +46,14 @@ def main():
         artist = song.get('artist', '未知藝人')
         album = song.get('album', '未知專輯')
         song_title = song.get('title', '未知歌名')
+        song_id = song.get('id', 'unknown_id') # 取得 metadata 中的 id
         url = song.get('href') # 對應 metadata.json 中的 href 欄位
 
         if not url:
             print(f"[{index}/{total_songs}] 跳過：{artist} - {song_title} (找不到有效網址)")
             continue
 
-        print(f"\n[{index}/{total_songs}] 正在下載：{artist} - {song_title}")
+        print(f"\n[{index}/{total_songs}] 正在下載：{artist} - {song_title} (ID: {song_id})")
 
         cmd = [
             ytdlp_path,
@@ -74,7 +75,8 @@ def main():
             '--parse-metadata', f"{album}:%(meta_album)s",
             '--embed-metadata',
             '--embed-thumbnail',
-            '--output', f"downloads/{artist}-{song_title}.%(ext)s",
+            # 檔案命名結尾加上 _id 確保唯一性
+            '--output', f"downloads/{artist}-{song_title}_{song_id}.%(ext)s",
             url
         ]
 
