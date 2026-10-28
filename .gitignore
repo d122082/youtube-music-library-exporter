@@ -6,3 +6,4 @@ metadata.json
 *.log
 *cookies*
 *.txt
+venv/

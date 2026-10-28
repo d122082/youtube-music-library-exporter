@@ -22,9 +22,23 @@ cd ~/Music
 git clone https://github.com/d122082/youtube-music-library-exporter.git
 cd youtube-music-library-exporter
 
+## install deno
+curl -fsSL https://deno.land/install.sh | sh
+export PATH="$HOME/.deno/bin:$PATH"
+deno --version
+
+## install ffmpeg docker.io jq
+
+## deploy PO Token docker server
+sudo docker run --name bgutil-provider -d -p 127.0.0.1:4416:4416 --init brainicism/bgutil-ytdlp-pot-provider
+sudo docker start bgutil-provider
+
+cd youtube-music-library-exporter
+
 ## create python venv 
 python3 -m venv venv
 source venv/bin/activate
+pip3 install beautifulsoup4
 pip3 install yt-dlp
 pip3 install --upgrade "yt-dlp[default]"
 pip3 install bgutil-ytdlp-pot-provider
@@ -32,15 +46,6 @@ pip3 install bgutil-ytdlp-pot-provider
 ## deploy PO Token docker server
 sudo docker run --name bgutil-provider -d -p 127.0.0.1:4416:4416 --init brainicism/bgutil-ytdlp-pot-provider
 sudo docker start bgutil-provider
-
-## install deno
-curl -fsSL https://deno.land/install.sh | sh
-export PATH="$HOME/.deno/bin:$PATH"
-deno --version
-
-## install ffmpeg php composer docker.io php-xml jq
-cd youtube-music-library-exporter
-composer install
 
 ----- Stop Python venv
 deactivate
