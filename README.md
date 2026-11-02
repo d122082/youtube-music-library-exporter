@@ -29,10 +29,6 @@ deno --version
 
 ## install ffmpeg docker.io jq
 
-## deploy PO Token docker server
-sudo docker run --name bgutil-provider -d -p 127.0.0.1:4416:4416 --init brainicism/bgutil-ytdlp-pot-provider
-sudo docker start bgutil-provider
-
 cd youtube-music-library-exporter
 
 ## create python venv 
